@@ -23,6 +23,16 @@ import { LiveSocket } from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
+/**
+ * Initializes a new LiveSocket instance with the specified options.
+ *
+ * @param {string} path - The path to the LiveSocket endpoint.
+ * @param {Socket} socket - The Phoenix Socket instance to use.
+ * @param {Object} options - The options for the LiveSocket instance.
+ * @param {number} [options.longPollFallbackMs=2500] - The fallback duration in milliseconds for long-polling.
+ * @param {Object} [options.params] - Additional parameters to include in the LiveSocket connection.
+ * @param {string} [options.params._csrf_token] - The CSRF token to include in the LiveSocket connection.
+ */
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: {_csrf_token: csrfToken}
