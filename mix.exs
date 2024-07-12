@@ -8,6 +8,7 @@ defmodule DcaPhx.Umbrella.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       aliases: aliases(),
+      releases: releases(),
       name: "DcaPhxUmbrella",
       source_url: "https://github.com/Taraluktus/dca_phx_umbrella",
       docs: [
@@ -55,6 +56,18 @@ defmodule DcaPhx.Umbrella.MixProject do
     [
       # run `mix setup` in all child apps
       setup: ["cmd mix setup"]
+    ]
+  end
+
+  # Umbrella projects require releases to be explicitly defined with a non-empty applications key that chooses which umbrella children should be part of the releases
+  defp releases do
+    [
+      dca_phx_umbrella: [
+        applications: [
+          dca_phx: :permanent,
+          dca_phx_web: :permanent
+        ]
+      ]
     ]
   end
 end
