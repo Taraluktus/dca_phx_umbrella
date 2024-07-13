@@ -9,6 +9,32 @@
 # move said applications out of the umbrella.
 import Config
 
+config :dca_phx, :ash_domains, [DcaPhx.Account]
+
+config :spark,
+  formatter: [
+    remove_parens?: true,
+    "Ash.Resource": [
+      section_order: [
+        :resource,
+        :code_interface,
+        :actions,
+        :policies,
+        :pub_sub,
+        :preparations,
+        :changes,
+        :validations,
+        :multitenancy,
+        :attributes,
+        :relationships,
+        :calculations,
+        :aggregates,
+        :identities
+      ]
+    ],
+    "Ash.Domain": [section_order: [:resources, :policies, :authorization, :domain, :execution]]
+  ]
+
 # Configure Mix tasks and generators
 config :dca_phx,
   ecto_repos: [DcaPhx.Repo]
