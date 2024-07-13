@@ -9,8 +9,6 @@
 # move said applications out of the umbrella.
 import Config
 
-config :dca_phx, :ash_domains, [DcaPhx.Account]
-
 config :spark,
   formatter: [
     remove_parens?: true,
@@ -35,6 +33,8 @@ config :spark,
     "Ash.Domain": [section_order: [:resources, :policies, :authorization, :domain, :execution]]
   ]
 
+config :dca_phx, :ash_domains, [DcaPhx.Account]
+
 # Configure Mix tasks and generators
 config :dca_phx,
   ecto_repos: [DcaPhx.Repo]
@@ -46,7 +46,7 @@ config :dca_phx,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :dca_phx, DcaPhx.Mailer, adapter: Swoosh.Adapters.Local
+# config :dca_phx, DcaPhx.Mailer, adapter: Swoosh.Adapters.Local
 
 config :dca_phx_web,
   ecto_repos: [DcaPhx.Repo],

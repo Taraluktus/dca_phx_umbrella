@@ -6,16 +6,16 @@ defmodule DcaPhx.Account.User do
 
   actions do
     # Use the default implementation of the :read action
-    defaults [:read]
+    defaults [:read, :update, :create]
 
-    # and a create action, which we'll custoomize later
-    create :create do
-      accept [:username, :email]
-    end
+    default_accept [:username, :email]
+
+    # and a create action, which we'll customize later
+    # create :create do
+    #   accept [:username, :email]
+    # end
 
     update :disable do
-      accept []
-
       validate attribute_does_not_equal(:disabled, true) do
         message "User is already disabled"
       end
@@ -56,7 +56,7 @@ defmodule DcaPhx.Account.User do
     end
   end
 
-  relationships do
-    has_many :roles, DcaPhx.Account.Role
-  end
+  # relationships do
+  #   has_many :roles, DcaPhx.Account.Role
+  # end
 end

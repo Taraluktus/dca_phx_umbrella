@@ -11,9 +11,7 @@ defmodule DcaPhx.Application do
     children = [
       DcaPhx.Repo,
       {DNSCluster, query: Application.get_env(:dca_phx, :dns_cluster_query) || :ignore},
-      {Phoenix.PubSub, name: DcaPhx.PubSub},
-      # Start the Finch HTTP client for sending emails
-      {Finch, name: DcaPhx.Finch}
+      {Phoenix.PubSub, name: DcaPhx.PubSub}
       # Start a worker by calling: DcaPhx.Worker.start_link(arg)
       # {DcaPhx.Worker, arg}
     ]
