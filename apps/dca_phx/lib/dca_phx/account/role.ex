@@ -4,6 +4,11 @@ defmodule DcaPhx.Account.Role do
   """
   use Ash.Resource, domain: DcaPhx.Account, data_layer: Ash.DataLayer.Ets
 
+  # postgres do
+  #   table "roles"
+  #   repo(DcaPhx.Repo)
+  # end
+
   actions do
     # Use the default implementation of the :read action
     defaults [:read]

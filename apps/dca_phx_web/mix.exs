@@ -23,7 +23,7 @@ defmodule DcaPhxWeb.MixProject do
   def application do
     [
       mod: {DcaPhxWeb.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end
 
@@ -59,6 +59,7 @@ defmodule DcaPhxWeb.MixProject do
       {:dca_phx, in_umbrella: true},
       {:jason, "~> 1.2"},
       {:bandit, "~> 1.5"}
+      # {:ash_admin, "~> 0.10.10-rc.1"}
     ]
   end
 
@@ -68,7 +69,8 @@ defmodule DcaPhxWeb.MixProject do
   defp aliases do
     [
       setup: ["deps.get", "assets.setup", "assets.build"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      # test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      test: ["test"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
       "assets.build": ["tailwind dca_phx_web", "esbuild dca_phx_web"],
       "assets.deploy": [

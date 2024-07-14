@@ -1,6 +1,8 @@
 defmodule DcaPhxWeb.Router do
   use DcaPhxWeb, :router
 
+  # import AshAdmin.Router
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -17,8 +19,23 @@ defmodule DcaPhxWeb.Router do
   scope "/", DcaPhxWeb do
     pipe_through :browser
 
+    # ash_admin("/admin")
+
     get "/", PageController, :home
   end
+
+  # scope "/", DcaPhxWeb do
+  #   pipe_through [:graphql]
+
+  #   forward "/gql",
+  #           Absinthe.Plug,
+  #           schema: Module.concat(["DcaPhx.GraphqlSchema"])
+
+  #   forward "/playground",
+  #           Absinthe.Plug.GraphiQL,
+  #           schema: Module.concat(["DcaPhx.GraphqlSchema"]),
+  #           interface: :playground
+  # end
 
   # Other scopes may use custom stacks.
   # scope "/api", DcaPhxWeb do

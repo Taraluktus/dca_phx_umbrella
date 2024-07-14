@@ -36,14 +36,16 @@ defmodule DcaPhx.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:dns_cluster, "~> 0.1.1"},
+      {:dns_cluster, "~> 0.1"},
       {:phoenix_pubsub, "~> 2.1"},
-      {:ecto_sql, "~> 3.10"},
-      {:postgrex, ">= 0.0.0"},
+      # {:ecto_sql, "~> 3.11"},
+      # {:postgrex, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:ash, "~> 3.1"},
       {:picosat_elixir, "~> 0.2"},
-      {:ash_postgres, "~> 2.1"}
+      # {:ash_postgres, "~> 2.1"},
+      # {:ecto_psql_extras, "~> 0.8"},
+      {:gettext, "~> 0.20"}
     ]
   end
 
@@ -52,10 +54,12 @@ defmodule DcaPhx.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "ecto.setup"],
-      "ecto.setup": ["ecto.create", "ecto.migrate", "run #{__DIR__}/priv/repo/seeds.exs"],
-      "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
+      # setup: ["deps.get", "ecto.setup"],
+      # "ecto.setup": ["ecto.create", "ecto.migrate", "run #{__DIR__}/priv/repo/seeds.exs"],
+      # "ecto.reset": ["ecto.drop", "ecto.setup"],
+      # test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      setup: ["deps.get"],
+      test: ["test"]
     ]
   end
 end

@@ -9,7 +9,7 @@ defmodule DcaPhx.Application do
   @spec start(any(), any()) :: {:error, any()} | {:ok, pid()}
   def start(_type, _args) do
     children = [
-      DcaPhx.Repo,
+      # DcaPhx.Repo,
       {DNSCluster, query: Application.get_env(:dca_phx, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: DcaPhx.PubSub}
       # Start a worker by calling: DcaPhx.Worker.start_link(arg)

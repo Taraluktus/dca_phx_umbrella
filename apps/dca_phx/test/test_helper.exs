@@ -3,4 +3,4 @@
 # This is typically used in test setup to ensure each test runs in a clean database
 # state, without affecting other tests.
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(DcaPhx.Repo, :manual)
+# Ecto.Adapters.SQL.Sandbox.mode(DcaPhx.Repo, :manual)

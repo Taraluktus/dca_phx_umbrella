@@ -2,11 +2,28 @@ defmodule DcaPhx.Account.User do
   @moduledoc """
   Domain entity representing a user.
   """
-  use Ash.Resource, domain: DcaPhx.Account, data_layer: Ash.DataLayer.Ets
+  use Ash.Resource,
+    domain: DcaPhx.Account,
+    data_layer: Ash.DataLayer.Ets
+
+  # postgres do
+  #   table "users"
+  #   repo(DcaPhx.Repo)
+  # end
+
+  # extensions: [AshGraphql.Resource, AshAdmin.Resource]
+
+  # graphql do
+  #   type :user
+  # end
+
+  # admin do
+  #   actor?(true)
+  # end
 
   actions do
     # Use the default implementation of the :read action
-    defaults [:read, :update, :create]
+    defaults [:read, :update, :create, :destroy]
 
     default_accept [:username, :email]
 

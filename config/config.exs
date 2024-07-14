@@ -35,9 +35,11 @@ config :spark,
 
 config :dca_phx, :ash_domains, [DcaPhx.Account]
 
+config :gettext, :default_locale, "en"
+
 # Configure Mix tasks and generators
-config :dca_phx,
-  ecto_repos: [DcaPhx.Repo]
+# config :dca_phx,
+#   ecto_repos: [DcaPhx.Repo]
 
 # Configures the mailer
 #
@@ -49,7 +51,7 @@ config :dca_phx,
 # config :dca_phx, DcaPhx.Mailer, adapter: Swoosh.Adapters.Local
 
 config :dca_phx_web,
-  ecto_repos: [DcaPhx.Repo],
+  # ecto_repos: [DcaPhx.Repo],
   generators: [context_app: :dca_phx]
 
 # Configures the endpoint
