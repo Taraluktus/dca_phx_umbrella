@@ -3,7 +3,7 @@ defmodule DcaPhxWeb.Release do
   Used for executing DB release tasks when run in production without Mix
   installed.
   """
-  @app :dca_phx_web
+  # @app :dca_phx_web
 
   # @spec migrate() :: list()
   # def migrate do
@@ -24,7 +24,7 @@ defmodule DcaPhxWeb.Release do
   #   Application.fetch_env!(@app, :ecto_repos)
   # end
 
-  defp load_app do
-    Application.load(@app)
-  end
+  # defp load_app do
+  #   Application.load(@app)
+  # end
 end
