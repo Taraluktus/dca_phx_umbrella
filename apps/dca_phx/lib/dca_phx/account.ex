@@ -16,14 +16,20 @@ defmodule DcaPhx.Account do
 
   resources do
     resource DcaPhx.Account.User do
-      define :create_user, action: :create
-      define :update_user, action: :update
-      define :destroy_user, action: :destroy
-      define :disable_user, args: [], action: :disable
-      define :enable_user, args: [], action: :enable
+      define :get_user, args: [:id], action: :read
+      define :create_user, args: [:username, :email], action: :create
+      define :update_user, args: [:email], action: :update
+      define :destroy_user, args: [:id], action: :destroy
+      define :disable_user, args: [:id], action: :disable
+      define :enable_user, args: [:id], action: :enable
     end
 
-    resource DcaPhx.Account.Role
+    resource DcaPhx.Account.Role do
+      define :get_role, args: [:id], action: :read
+      define :create_role, args: [:name, :description], action: :create
+      define :update_role, args: [:name, :description], action: :update
+      define :destroy_role, args: [:id], action: :destroy
+    end
   end
 
   # graphql do

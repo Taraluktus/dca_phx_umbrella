@@ -25,7 +25,7 @@ defmodule DcaPhx.Account.User do
 
   actions do
     # Use the default implementation of the :read action
-    defaults [:read, :update, :create, :destroy]
+    defaults [:read, :create, :destroy]
 
     default_accept [:username, :email]
 
@@ -34,21 +34,21 @@ defmodule DcaPhx.Account.User do
     #   accept [:username, :email]
     # end
 
+    update :update do
+      accept [:email]
+
+      change set_attribute(:email, :email)
+    end
+
     update :disable do
       validate attribute_does_not_equal(:disabled, true) do
         message(gettext("User is already disabled"))
       end
 
       change set_attribute(:disabled, true)
-      # A custom change could be added like so:
-      #
-      # change MyCustomChange
-      # change {MyCustomChange, opt: :val}
     end
 
     update :enable do
-      accept []
-
       validate attribute_does_not_equal(:disabled, false) do
         message(gettext("User is already enabled"))
       end

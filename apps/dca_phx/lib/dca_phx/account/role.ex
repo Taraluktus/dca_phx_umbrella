@@ -11,12 +11,9 @@ defmodule DcaPhx.Account.Role do
 
   actions do
     # Use the default implementation of the :read action
-    defaults [:read]
+    defaults [:read, :create, :update, :destroy]
 
-    # and a create action, which we'll custoomize later
-    create :create do
-      accept [:name]
-    end
+    default_accept [:name, :description]
   end
 
   attributes do
@@ -25,6 +22,10 @@ defmodule DcaPhx.Account.Role do
 
     attribute :name, :string do
       allow_nil? false
+      public? true
+    end
+
+    attribute :description, :string do
       public? true
     end
   end
