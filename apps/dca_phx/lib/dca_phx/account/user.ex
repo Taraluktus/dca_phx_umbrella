@@ -6,6 +6,8 @@ defmodule DcaPhx.Account.User do
     domain: DcaPhx.Account,
     data_layer: Ash.DataLayer.Ets
 
+  import DcaPhx.Gettext
+
   # postgres do
   #   table "users"
   #   repo(DcaPhx.Repo)
@@ -34,7 +36,7 @@ defmodule DcaPhx.Account.User do
 
     update :disable do
       validate attribute_does_not_equal(:disabled, true) do
-        message "User is already disabled"
+        message(gettext("User is already disabled"))
       end
 
       change set_attribute(:disabled, true)
@@ -48,7 +50,7 @@ defmodule DcaPhx.Account.User do
       accept []
 
       validate attribute_does_not_equal(:disabled, false) do
-        message "User is already enabled"
+        message(gettext("User is already enabled"))
       end
 
       change set_attribute(:disabled, false)
