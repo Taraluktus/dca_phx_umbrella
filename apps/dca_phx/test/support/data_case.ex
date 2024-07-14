@@ -32,7 +32,6 @@ defmodule DcaPhx.DataCase do
     :ok
   end
 
-  @spec setup_sandbox(nil | maybe_improper_list() | map()) :: :ok
   @doc """
   Sets up the sandbox based on the test tags.
   """
