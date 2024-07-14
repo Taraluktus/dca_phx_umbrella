@@ -1,5 +1,7 @@
 import Config
 
+config :ash, show_sensitive?: true
+
 # Configure your database
 config :dca_phx, DcaPhx.Repo,
   username: "postgres",
